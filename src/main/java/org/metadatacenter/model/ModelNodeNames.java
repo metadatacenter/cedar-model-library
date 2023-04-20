@@ -82,6 +82,8 @@ public class ModelNodeNames
   public static final String PAV_DERIVED_FROM = "pav:derivedFrom";
   public static final String OSLC_MODIFIED_BY = "oslc:modifiedBy";
 
+  public static final String SCHEMA_ORG_TITLE = "schema:title";
+
   public static final Set<String> ARTIFACT_KEYWORDS = Stream.concat(JSON_LD_KEYWORDS.stream(), Stream
     .of(SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION, SCHEMA_ORG_IDENTIFIER, PAV_CREATED_ON, PAV_CREATED_BY,
       PAV_LAST_UPDATED_ON, PAV_DERIVED_FROM, OSLC_MODIFIED_BY)).collect(Collectors.toUnmodifiableSet());
