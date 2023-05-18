@@ -5,15 +5,15 @@
   <parent>
     <groupId>org.metadatacenter</groupId>
     <artifactId>cedar-parent</artifactId>
-    <version>2.6.24</version>
+    <version>2.6.25</version>
   </parent>
 
   <groupId>org.metadatacenter</groupId>
   <artifactId>cedar-model-library</artifactId>
-  <version>2.6.24</version>
+  <version>2.6.25</version>
 
   <name>CEDAR Model Library</name>
-  <description>Library for model-related operations</description>
+  <description>Library that defines model-related constants</description>
 
   <properties>
   </properties>
@@ -22,7 +22,6 @@
     <connection>scm:git:https://github.com/metadatacenter/cedar-model-library.git</connection>
     <developerConnection>scm:git:https://github.com/metadatacenter/cedar-model-library.git</developerConnection>
     <url>https://github.com/metadatacenter/cedar-model-library</url>
-    <tag>release-2.6.24</tag>
   </scm>
 
   <dependencies>
