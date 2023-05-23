@@ -188,6 +188,7 @@ public class ModelNodeNames
   public static final String VALUE_CONSTRAINTS_LITERALS = "literals";
   public static final String VALUE_CONSTRAINTS_MULTIPLE_CHOICE = "multipleChoice";
   public static final String VALUE_CONSTRAINTS_DEFAULT_VALUE = "defaultValue";
+  public static final String VALUE_CONSTRAINTS_DEFAULT_VALUE_TERM_URI = "termUri";
   public static final String VALUE_CONSTRAINTS_URI = "uri";
   public static final String VALUE_CONSTRAINTS_LABEL = "label";
   public static final String VALUE_CONSTRAINTS_PREFLABEL = "prefLabel";
