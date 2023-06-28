@@ -213,6 +213,8 @@ public class ModelNodeNames
   public static final String VALUE_CONSTRAINTS_UNIT_OF_MEASURE = "unitOfMeasure";
   public static final String VALUE_CONSTRAINTS_TEMPORAL_TYPE = "temporalType";
   public static final String VALUE_CONSTRAINTS_ACTION = "action";
+  public static final String VALUE_CONSTRAINTS_ACTION_MOVE = "move";
+  public static final String VALUE_CONSTRAINTS_ACTION_DELETE = "delete";
   public static final String VALUE_CONSTRAINTS_ACTION_TO = "to";
 
   public static final Set<String> VALUE_CONSTRAINTS_KEYWORDS = Stream
@@ -223,7 +225,7 @@ public class ModelNodeNames
       VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT, VALUE_CONSTRAINTS_MIN_STRING_LENGTH, VALUE_CONSTRAINTS_MAX_STRING_LENGTH,
       VALUE_CONSTRAINTS_MIN_NUMBER_VALUE, VALUE_CONSTRAINTS_MAX_NUMBER_VALUE, VALUE_CONSTRAINTS_DECIMAL_PLACE,
       VALUE_CONSTRAINTS_NUMBER_TYPE, VALUE_CONSTRAINTS_UNIT_OF_MEASURE, VALUE_CONSTRAINTS_TEMPORAL_TYPE,
-      VALUE_CONSTRAINTS_ACTION, VALUE_CONSTRAINTS_ACTION_TO).collect(Collectors.toUnmodifiableSet());
+      VALUE_CONSTRAINTS_ACTION, VALUE_CONSTRAINTS_ACTION_MOVE, VALUE_CONSTRAINTS_ACTION_DELETE, VALUE_CONSTRAINTS_ACTION_TO).collect(Collectors.toUnmodifiableSet());
 
   public static final String RDFS = "rdfs";
   public static final String XSD = "xsd";
