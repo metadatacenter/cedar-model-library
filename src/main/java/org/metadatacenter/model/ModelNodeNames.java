@@ -39,6 +39,7 @@ public class ModelNodeNames
    * JSON Schema Keywords
    */
   public static final String JSON_SCHEMA_SCHEMA = "$schema";
+  public static final String JSON_SCHEMA_SCHEMA_IRI = "http://json-schema.org/draft-04/schema#";
   public static final String JSON_SCHEMA_REF = "$ref";
   public static final String JSON_SCHEMA_TYPE = "type";
   public static final String JSON_SCHEMA_ARRAY = "array";
