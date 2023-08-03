@@ -236,6 +236,14 @@ public class ModelNodeNames
   public static final String SKOS = "skos";
   public static final String BIBO = "bibo";
 
+  public static final String RDFS_IRI = "http://www.w3.org/2000/01/rdf-schema#";
+  public static final String XSD_IRI = "http://www.w3.org/2001/XMLSchema#";
+  public static final String PAV_IRI = "http://purl.org/pav/";
+  public static final String SCHEMA_IRI = "http://schema.org/";
+  public static final String OSLC_IRI = "http://open-services.net/ns/core#";
+  public static final String SKOS_IRI = "http://www.w3.org/2004/02/skos/core#";
+  public static final String BIBO_IRI = "http://purl.org/ontology/bibo/";
+
   public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(XSD, PAV, SCHEMA, OSLC, BIBO, SKOS)
     .collect(Collectors.toUnmodifiableSet());
 
