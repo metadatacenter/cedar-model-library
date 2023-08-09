@@ -244,8 +244,16 @@ public class ModelNodeNames
   public static final String SKOS_IRI = "http://www.w3.org/2004/02/skos/core#";
   public static final String BIBO_IRI = "http://purl.org/ontology/bibo/";
 
-  public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(XSD, PAV, SCHEMA, OSLC, BIBO, SKOS)
+  public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(RDFS, XSD, PAV, SCHEMA, OSLC, BIBO, SKOS)
     .collect(Collectors.toUnmodifiableSet());
+
+  public static final Set<String> ARTIFACT_CONTEXT_FIELDS = Stream.of(SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION,
+      SCHEMA_IS_BASED_ON, PAV_DERIVED_FROM,
+      PAV_CREATED_BY, OSLC_MODIFIED_BY, PAV_CREATED_ON, PAV_LAST_UPDATED_ON, RDFS_LABEL, SKOS_NOTATION, SKOS_ALTLABEL)
+    .collect(Collectors.toUnmodifiableSet());
+
+  public static final Set<String> ARTIFACT_CONTEXT_ENTRIES =
+    Stream.concat(ARTIFACT_CONTEXT_PREFIXES.stream(), ARTIFACT_CONTEXT_FIELDS.stream()).collect(Collectors.toSet());
 
   public static final String TEMPLATE_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/Template";
   public static final String ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/TemplateElement";
