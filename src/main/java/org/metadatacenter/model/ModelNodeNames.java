@@ -1,5 +1,7 @@
 package org.metadatacenter.model;
 
+import java.net.URI;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -228,32 +230,34 @@ public class ModelNodeNames
     VALUE_CONSTRAINTS_TEMPORAL_TYPE, VALUE_CONSTRAINTS_ACTIONS, VALUE_CONSTRAINTS_ACTION, VALUE_CONSTRAINTS_ACTION_MOVE,
     VALUE_CONSTRAINTS_ACTION_DELETE, VALUE_CONSTRAINTS_ACTION_TO).collect(Collectors.toUnmodifiableSet());
 
-  public static final String RDFS = "rdfs";
-  public static final String XSD = "xsd";
-  public static final String PAV = "pav";
   public static final String SCHEMA = "schema";
-  public static final String OSLC = "oslc";
-  public static final String SKOS = "skos";
   public static final String BIBO = "bibo";
+  public static final String PAV = "pav";
+  public static final String OSLC = "oslc";
+  public static final String XSD = "xsd";
+  public static final String SKOS = "skos";
+  public static final String RDFS = "rdfs";
 
-  public static final String RDFS_IRI = "http://www.w3.org/2000/01/rdf-schema#";
-  public static final String XSD_IRI = "http://www.w3.org/2001/XMLSchema#";
   public static final String PAV_IRI = "http://purl.org/pav/";
   public static final String SCHEMA_IRI = "http://schema.org/";
   public static final String OSLC_IRI = "http://open-services.net/ns/core#";
-  public static final String SKOS_IRI = "http://www.w3.org/2004/02/skos/core#";
   public static final String BIBO_IRI = "http://purl.org/ontology/bibo/";
+  public static final String XSD_IRI = "http://www.w3.org/2001/XMLSchema#";
+  public static final String SKOS_IRI = "http://www.w3.org/2004/02/skos/core#";
+  public static final String RDFS_IRI = "http://www.w3.org/2000/01/rdf-schema#";
 
-  public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(RDFS, XSD, PAV, SCHEMA, OSLC, BIBO, SKOS)
+  public static final Map<String, URI> SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+  public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(SCHEMA, OSLC, BIBO, XSD, PAV, SKOS, RDFS)
     .collect(Collectors.toUnmodifiableSet());
 
   public static final Set<String> ARTIFACT_CONTEXT_FIELDS = Stream.of(SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION,
-      SCHEMA_IS_BASED_ON, PAV_DERIVED_FROM,
-      PAV_CREATED_BY, OSLC_MODIFIED_BY, PAV_CREATED_ON, PAV_LAST_UPDATED_ON, RDFS_LABEL, SKOS_NOTATION, SKOS_ALTLABEL)
-    .collect(Collectors.toUnmodifiableSet());
+    SCHEMA_IS_BASED_ON, PAV_DERIVED_FROM, PAV_CREATED_BY, OSLC_MODIFIED_BY, PAV_CREATED_ON, PAV_LAST_UPDATED_ON,
+    RDFS_LABEL, SKOS_NOTATION, SKOS_ALTLABEL).collect(Collectors.toUnmodifiableSet());
 
-  public static final Set<String> ARTIFACT_CONTEXT_ENTRIES =
-    Stream.concat(ARTIFACT_CONTEXT_PREFIXES.stream(), ARTIFACT_CONTEXT_FIELDS.stream()).collect(Collectors.toSet());
+  public static final Set<String> ARTIFACT_CONTEXT_ENTRIES = Stream.concat(ARTIFACT_CONTEXT_PREFIXES.stream(),
+    ARTIFACT_CONTEXT_FIELDS.stream()).collect(Collectors.toSet());
 
   public static final String TEMPLATE_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/Template";
   public static final String ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/TemplateElement";
