@@ -254,6 +254,10 @@ public class ModelNodeNames
     Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)),
     Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
+  public static final Map<String, URI> STATIC_FIELD_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)),
+    Map.entry(OSLC, URI.create(OSLC_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
   public static final Map<String, URI> INSTANCE_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
     Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(RDFS, URI.create(RDFS_IRI)),
     Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
