@@ -246,8 +246,17 @@ public class ModelNodeNames
   public static final String SKOS_IRI = "http://www.w3.org/2004/02/skos/core#";
   public static final String RDFS_IRI = "http://www.w3.org/2000/01/rdf-schema#";
 
-  public static final Map<String, URI> SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
-    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  public static final Map<String, URI> PARENT_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)),
+    Map.entry(XSD, URI.create(XSD_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+  public static final Map<String, URI> FIELD_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)),
+    Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+  public static final Map<String, URI> INSTANCE_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(RDFS, URI.create(RDFS_IRI)),
+    Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
   public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(SCHEMA, OSLC, BIBO, XSD, PAV, SKOS, RDFS)
     .collect(Collectors.toUnmodifiableSet());
