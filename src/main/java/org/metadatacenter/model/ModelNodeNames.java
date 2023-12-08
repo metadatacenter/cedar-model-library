@@ -279,4 +279,7 @@ public class ModelNodeNames
 
   public static final Set<String> SCHEMA_ARTIFACT_TYPE_IRIS = Stream.of(TEMPLATE_SCHEMA_ARTIFACT_TYPE_IRI,
     ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI, FIELD_SCHEMA_ARTIFACT_TYPE_IRI, STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI).collect(Collectors.toUnmodifiableSet());
+
+  public static final String ANNOTATIONS = "_annotations";
+  public static final String DATACITE_DOI_URI = "https://datacite.com/doi";
 }
