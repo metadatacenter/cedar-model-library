@@ -5,9 +5,9 @@ public class ModelPaths {
   private ModelPaths() {
   }
 
-  public static final String SCHEMA_DESCRIPTION =  "/" + ModelNodeNames.SCHEMA_ORG_DESCRIPTION;
+  public static final String SCHEMA_DESCRIPTION = "/" + ModelNodeNames.SCHEMA_ORG_DESCRIPTION;
   public static final String SCHEMA_NAME = "/" + ModelNodeNames.SCHEMA_ORG_NAME;
-  public static final String SCHEMA_IDENTIFIER =  "/" + ModelNodeNames.SCHEMA_ORG_IDENTIFIER;
+  public static final String SCHEMA_IDENTIFIER = "/" + ModelNodeNames.SCHEMA_ORG_IDENTIFIER;
   public static final String SCHEMA_IS_BASED_ON = "/" + ModelNodeNames.SCHEMA_IS_BASED_ON;
 
   public static final String CREATED_BY = "/createdBy";
@@ -22,4 +22,6 @@ public class ModelPaths {
   public static final String BIBO_STATUS = "/" + ModelNodeNames.BIBO_STATUS;
 
   public static final String AT_ID = "/" + ModelNodeNames.JSON_LD_ID;
+
+  public static final String ANNOTATION_DOI_ID = "/" + ModelNodeNames.ANNOTATIONS + "/" + ModelNodeNames.DATACITE_DOI_URI.replace("/", "~1") + "/" + ModelNodeNames.JSON_LD_ID;
 }
