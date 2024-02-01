@@ -142,6 +142,8 @@ public class ModelNodeNames
 
   // CEDAR keywords that can occur in a field schema artifact's _UI object;
   public static final String UI_VALUE_RECOMMENDATION_ENABLED = "valueRecommendationEnabled";
+  public static final String UI_RECOMMENDED_VALUE = "recommendedValue";
+  public static final String UI_CONTINUE_PREVIOUS_LINE = "continuePreviousLine";
   public static final String UI_FIELD_INPUT_TYPE = "inputType";
   public static final String UI_HIDDEN = "hidden";
   public static final String UI_INPUT_TIME_FORMAT = "inputTimeFormat";
@@ -152,7 +154,8 @@ public class ModelNodeNames
   public static final String UI_FOOTER = "footer";
 
   public static final Set<String> FIELD_SCHEMA_UI_KEYWORDS = Stream.of(UI_VALUE_RECOMMENDATION_ENABLED,
-    UI_FIELD_INPUT_TYPE, UI_HIDDEN, UI_INPUT_TIME_FORMAT, UI_TEMPORAL_GRANULARITY, UI_TIMEZONE_ENABLED).collect(Collectors.toUnmodifiableSet());
+    UI_RECOMMENDED_VALUE, UI_CONTINUE_PREVIOUS_LINE, UI_FIELD_INPUT_TYPE, UI_HIDDEN, UI_INPUT_TIME_FORMAT,
+    UI_TEMPORAL_GRANULARITY, UI_TIMEZONE_ENABLED).collect(Collectors.toUnmodifiableSet());
 
   // CEDAR field input types
   public static final String FIELD_INPUT_TYPE_TEXTFIELD = "textfield";
