@@ -50,6 +50,10 @@ public class ModelNodeNames
   public static final String JSON_SCHEMA_DESCRIPTION = "description";
   public static final String JSON_SCHEMA_PROPERTIES = "properties";
   public static final String JSON_SCHEMA_FORMAT = "format";
+  public static final String JSON_SCHEMA_FORMAT_URI = "uri";
+  public static final String JSON_SCHEMA_FORMAT_DATE_TIME = "date-time";
+  public static final String JSON_SCHEMA_STRING = "string";
+  public static final String JSON_SCHEMA_NULL = "null";
   public static final String JSON_SCHEMA_ENUM = "enum";
   public static final String JSON_SCHEMA_ONE_OF = "oneOf";
   public static final String JSON_SCHEMA_ITEMS = "items";
@@ -63,8 +67,11 @@ public class ModelNodeNames
   public static final String JSON_SCHEMA_PATTERN_PROPERTIES = "patternProperties";
   public static final String JSON_SCHEMA_ADDITIONAL_PROPERTIES = "additionalProperties";
 
-  public static final Set<String> JSON_SCHEMA_KEYWORDS = Stream.of(JSON_SCHEMA_SCHEMA, JSON_SCHEMA_REF, JSON_SCHEMA_TYPE, JSON_SCHEMA_ARRAY, JSON_SCHEMA_OBJECT, JSON_SCHEMA_TITLE,
-    JSON_SCHEMA_DESCRIPTION, JSON_SCHEMA_PROPERTIES, JSON_SCHEMA_FORMAT, JSON_SCHEMA_ENUM, JSON_SCHEMA_ONE_OF,
+  public static final Set<String> JSON_SCHEMA_KEYWORDS = Stream.of(JSON_SCHEMA_SCHEMA, JSON_SCHEMA_SCHEMA_IRI,
+    JSON_SCHEMA_REF, JSON_SCHEMA_TYPE, JSON_SCHEMA_ARRAY, JSON_SCHEMA_OBJECT, JSON_SCHEMA_TITLE,
+    JSON_SCHEMA_DESCRIPTION, JSON_SCHEMA_PROPERTIES,
+    JSON_SCHEMA_FORMAT, JSON_SCHEMA_FORMAT_URI, JSON_SCHEMA_FORMAT_DATE_TIME, JSON_SCHEMA_STRING, JSON_SCHEMA_NULL,
+    JSON_SCHEMA_ENUM, JSON_SCHEMA_ONE_OF,
     JSON_SCHEMA_ITEMS, JSON_SCHEMA_UNIQUE_ITEMS, JSON_SCHEMA_MIN_ITEMS, JSON_SCHEMA_MAX_ITEMS, JSON_SCHEMA_MIN_LENGTH,
     JSON_SCHEMA_MAX_LENGTH, JSON_SCHEMA_MINIMUM, JSON_SCHEMA_REQUIRED, JSON_SCHEMA_PATTERN_PROPERTIES,
     JSON_SCHEMA_ADDITIONAL_PROPERTIES).collect(Collectors.toUnmodifiableSet());
@@ -95,8 +102,9 @@ public class ModelNodeNames
   public static final String BIBO_STATUS = "bibo:status";
   public static final String UI = "_ui";
 
-  public static final Set<String> SCHEMA_ARTIFACT_KEYWORDS = Stream.concat(Stream.concat(ARTIFACT_KEYWORDS.stream(), JSON_SCHEMA_KEYWORDS.stream()),
-      Stream.of(SCHEMA_ORG_SCHEMA_VERSION, PAV_VERSION, PAV_PREVIOUS_VERSION, BIBO_STATUS, UI))
+  public static final Set<String> SCHEMA_ARTIFACT_KEYWORDS = Stream.concat(Stream.concat(ARTIFACT_KEYWORDS.stream(),
+        JSON_SCHEMA_KEYWORDS.stream()),
+      Stream.of(SCHEMA_ORG_SCHEMA_VERSION, SCHEMA_ORG_TITLE, PAV_VERSION, PAV_PREVIOUS_VERSION, BIBO_STATUS, UI))
     .collect(Collectors.toUnmodifiableSet());
 
   public static final Set<String> TEMPLATE_SCHEMA_ARTIFACT_KEYWORDS = SCHEMA_ARTIFACT_KEYWORDS;
@@ -289,4 +297,7 @@ public class ModelNodeNames
 
   public static final String ANNOTATIONS = "_annotations";
   public static final String DATACITE_DOI_URI = "https://datacite.com/doi";
+  public static final String XSD_DATE = "xsd:date";
+  public static final String XSD_TIME = "xsd:time";
+  public static final String XSD_DATETIME = "xsd:dateTime";
 }
