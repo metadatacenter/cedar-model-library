@@ -292,6 +292,11 @@ public class ModelNodeNames
   public static final String FIELD_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/TemplateField";
   public static final String STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/StaticTemplateField";
 
+  public static final URI TEMPLATE_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/Template");
+  public static final URI ELEMENT_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/TemplateElement");
+  public static final URI FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/TemplateField");
+  public static final URI STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/StaticTemplateField");
+
   public static final Set<String> SCHEMA_ARTIFACT_TYPE_IRIS = Stream.of(TEMPLATE_SCHEMA_ARTIFACT_TYPE_IRI,
     ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI, FIELD_SCHEMA_ARTIFACT_TYPE_IRI, STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI).collect(Collectors.toUnmodifiableSet());
 
