@@ -175,6 +175,7 @@ public class ModelNodeNames
   public static final String FIELD_INPUT_TYPE_LIST = "list";
   public static final String FIELD_INPUT_TYPE_NUMERIC = "numeric";
   public static final String FIELD_INPUT_TYPE_PHONE_NUMBER = "phone-number";
+  public static final String FIELD_INPUT_TYPE_BOOLEAN = "boolean";
   public static final String FIELD_INPUT_TYPE_PAGE_BREAK = "page-break";
   public static final String FIELD_INPUT_TYPE_SECTION_BREAK = "section-break";
   public static final String FIELD_INPUT_TYPE_RICH_TEXT = "richtext";
@@ -185,7 +186,7 @@ public class ModelNodeNames
 
   public static final Set<String> INPUT_TYPES = Stream.of(FIELD_INPUT_TYPE_TEXTFIELD, FIELD_INPUT_TYPE_TEXTAREA,
     FIELD_INPUT_TYPE_RADIO, FIELD_INPUT_TYPE_CHECKBOX, FIELD_INPUT_TYPE_TEMPORAL, FIELD_INPUT_TYPE_EMAIL,
-    FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER,
+    FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER, FIELD_INPUT_TYPE_BOOLEAN,
     FIELD_INPUT_TYPE_PAGE_BREAK, FIELD_INPUT_TYPE_SECTION_BREAK,
     FIELD_INPUT_TYPE_RICH_TEXT, FIELD_INPUT_TYPE_IMAGE, FIELD_INPUT_TYPE_LINK, FIELD_INPUT_TYPE_YOUTUBE,
     FIELD_INPUT_TYPE_ATTRIBUTE_VALUE).collect(Collectors.toUnmodifiableSet());
