@@ -50,6 +50,10 @@ public class ModelNodeNames
   public static final String JSON_SCHEMA_DESCRIPTION = "description";
   public static final String JSON_SCHEMA_PROPERTIES = "properties";
   public static final String JSON_SCHEMA_FORMAT = "format";
+  public static final String JSON_SCHEMA_FORMAT_URI = "uri";
+  public static final String JSON_SCHEMA_FORMAT_DATE_TIME = "date-time";
+  public static final String JSON_SCHEMA_STRING = "string";
+  public static final String JSON_SCHEMA_NULL = "null";
   public static final String JSON_SCHEMA_ENUM = "enum";
   public static final String JSON_SCHEMA_ONE_OF = "oneOf";
   public static final String JSON_SCHEMA_ITEMS = "items";
@@ -63,8 +67,11 @@ public class ModelNodeNames
   public static final String JSON_SCHEMA_PATTERN_PROPERTIES = "patternProperties";
   public static final String JSON_SCHEMA_ADDITIONAL_PROPERTIES = "additionalProperties";
 
-  public static final Set<String> JSON_SCHEMA_KEYWORDS = Stream.of(JSON_SCHEMA_SCHEMA, JSON_SCHEMA_REF, JSON_SCHEMA_TYPE, JSON_SCHEMA_ARRAY, JSON_SCHEMA_OBJECT, JSON_SCHEMA_TITLE,
-    JSON_SCHEMA_DESCRIPTION, JSON_SCHEMA_PROPERTIES, JSON_SCHEMA_FORMAT, JSON_SCHEMA_ENUM, JSON_SCHEMA_ONE_OF,
+  public static final Set<String> JSON_SCHEMA_KEYWORDS = Stream.of(JSON_SCHEMA_SCHEMA, JSON_SCHEMA_SCHEMA_IRI,
+    JSON_SCHEMA_REF, JSON_SCHEMA_TYPE, JSON_SCHEMA_ARRAY, JSON_SCHEMA_OBJECT, JSON_SCHEMA_TITLE,
+    JSON_SCHEMA_DESCRIPTION, JSON_SCHEMA_PROPERTIES,
+    JSON_SCHEMA_FORMAT, JSON_SCHEMA_FORMAT_URI, JSON_SCHEMA_FORMAT_DATE_TIME, JSON_SCHEMA_STRING, JSON_SCHEMA_NULL,
+    JSON_SCHEMA_ENUM, JSON_SCHEMA_ONE_OF,
     JSON_SCHEMA_ITEMS, JSON_SCHEMA_UNIQUE_ITEMS, JSON_SCHEMA_MIN_ITEMS, JSON_SCHEMA_MAX_ITEMS, JSON_SCHEMA_MIN_LENGTH,
     JSON_SCHEMA_MAX_LENGTH, JSON_SCHEMA_MINIMUM, JSON_SCHEMA_REQUIRED, JSON_SCHEMA_PATTERN_PROPERTIES,
     JSON_SCHEMA_ADDITIONAL_PROPERTIES).collect(Collectors.toUnmodifiableSet());
@@ -95,8 +102,9 @@ public class ModelNodeNames
   public static final String BIBO_STATUS = "bibo:status";
   public static final String UI = "_ui";
 
-  public static final Set<String> SCHEMA_ARTIFACT_KEYWORDS = Stream.concat(Stream.concat(ARTIFACT_KEYWORDS.stream(), JSON_SCHEMA_KEYWORDS.stream()),
-      Stream.of(SCHEMA_ORG_SCHEMA_VERSION, PAV_VERSION, PAV_PREVIOUS_VERSION, BIBO_STATUS, UI))
+  public static final Set<String> SCHEMA_ARTIFACT_KEYWORDS = Stream.concat(Stream.concat(ARTIFACT_KEYWORDS.stream(),
+        JSON_SCHEMA_KEYWORDS.stream()),
+      Stream.of(SCHEMA_ORG_SCHEMA_VERSION, SCHEMA_ORG_TITLE, PAV_VERSION, PAV_PREVIOUS_VERSION, BIBO_STATUS, UI))
     .collect(Collectors.toUnmodifiableSet());
 
   public static final Set<String> TEMPLATE_SCHEMA_ARTIFACT_KEYWORDS = SCHEMA_ARTIFACT_KEYWORDS;
@@ -167,6 +175,7 @@ public class ModelNodeNames
   public static final String FIELD_INPUT_TYPE_LIST = "list";
   public static final String FIELD_INPUT_TYPE_NUMERIC = "numeric";
   public static final String FIELD_INPUT_TYPE_PHONE_NUMBER = "phone-number";
+  public static final String FIELD_INPUT_TYPE_PAGE_BREAK = "page-break";
   public static final String FIELD_INPUT_TYPE_SECTION_BREAK = "section-break";
   public static final String FIELD_INPUT_TYPE_RICH_TEXT = "richtext";
   public static final String FIELD_INPUT_TYPE_IMAGE = "image";
@@ -176,7 +185,8 @@ public class ModelNodeNames
 
   public static final Set<String> INPUT_TYPES = Stream.of(FIELD_INPUT_TYPE_TEXTFIELD, FIELD_INPUT_TYPE_TEXTAREA,
     FIELD_INPUT_TYPE_RADIO, FIELD_INPUT_TYPE_CHECKBOX, FIELD_INPUT_TYPE_TEMPORAL, FIELD_INPUT_TYPE_EMAIL,
-    FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER, FIELD_INPUT_TYPE_SECTION_BREAK,
+    FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER,
+    FIELD_INPUT_TYPE_PAGE_BREAK, FIELD_INPUT_TYPE_SECTION_BREAK,
     FIELD_INPUT_TYPE_RICH_TEXT, FIELD_INPUT_TYPE_IMAGE, FIELD_INPUT_TYPE_LINK, FIELD_INPUT_TYPE_YOUTUBE,
     FIELD_INPUT_TYPE_ATTRIBUTE_VALUE).collect(Collectors.toUnmodifiableSet());
 
@@ -205,6 +215,7 @@ public class ModelNodeNames
   public static final String VALUE_CONSTRAINTS_VS_COLLECTION = "vsCollection";
   public static final String VALUE_CONSTRAINTS_EXCLUSIONS = "exclusions";
   public static final String VALUE_CONSTRAINTS_REQUIRED_VALUE = "requiredValue";
+  public static final String VALUE_CONSTRAINTS_RECOMMENDED_VALUE = "recommendedValue";
   public static final String VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT = "selectedByDefault";
   public static final String VALUE_CONSTRAINTS_MIN_STRING_LENGTH = "minLength";
   public static final String VALUE_CONSTRAINTS_MAX_STRING_LENGTH = "maxLength";
@@ -227,7 +238,8 @@ public class ModelNodeNames
     VALUE_CONSTRAINTS_SOURCE_URI, VALUE_CONSTRAINTS_TERM_URI, VALUE_CONSTRAINTS_DEFAULT_VALUE_TERM_URI,
     VALUE_CONSTRAINTS_LABEL, VALUE_CONSTRAINTS_PREFLABEL, VALUE_CONSTRAINTS_TYPE, VALUE_CONSTRAINTS_TYPE_ONTOLOGY_CLASS,
     VALUE_CONSTRAINTS_TYPE_VALUE_SET, VALUE_CONSTRAINTS_NAME, VALUE_CONSTRAINTS_ACRONYM, VALUE_CONSTRAINTS_EXCLUSIONS,
-    VALUE_CONSTRAINTS_REQUIRED_VALUE, VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT, VALUE_CONSTRAINTS_MIN_STRING_LENGTH,
+    VALUE_CONSTRAINTS_REQUIRED_VALUE, VALUE_CONSTRAINTS_RECOMMENDED_VALUE,
+    VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT, VALUE_CONSTRAINTS_MIN_STRING_LENGTH,
     VALUE_CONSTRAINTS_MAX_STRING_LENGTH, VALUE_CONSTRAINTS_MIN_NUMBER_VALUE, VALUE_CONSTRAINTS_MAX_NUMBER_VALUE,
     VALUE_CONSTRAINTS_DECIMAL_PLACE, VALUE_CONSTRAINTS_NUMBER_TYPE, VALUE_CONSTRAINTS_UNIT_OF_MEASURE,
     VALUE_CONSTRAINTS_TEMPORAL_TYPE, VALUE_CONSTRAINTS_ACTIONS, VALUE_CONSTRAINTS_ACTION, VALUE_CONSTRAINTS_ACTION_MOVE,
@@ -280,9 +292,17 @@ public class ModelNodeNames
   public static final String FIELD_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/TemplateField";
   public static final String STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/StaticTemplateField";
 
+  public static final URI TEMPLATE_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/Template");
+  public static final URI ELEMENT_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/TemplateElement");
+  public static final URI FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/TemplateField");
+  public static final URI STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/StaticTemplateField");
+
   public static final Set<String> SCHEMA_ARTIFACT_TYPE_IRIS = Stream.of(TEMPLATE_SCHEMA_ARTIFACT_TYPE_IRI,
     ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI, FIELD_SCHEMA_ARTIFACT_TYPE_IRI, STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI).collect(Collectors.toUnmodifiableSet());
 
   public static final String ANNOTATIONS = "_annotations";
   public static final String DATACITE_DOI_URI = "https://datacite.com/doi";
+  public static final String XSD_DATE = "xsd:date";
+  public static final String XSD_TIME = "xsd:time";
+  public static final String XSD_DATETIME = "xsd:dateTime";
 }
