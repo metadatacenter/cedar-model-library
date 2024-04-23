@@ -137,12 +137,11 @@ public class ModelNodeNames
     .collect(Collectors.toUnmodifiableSet());
 
   // CEDAR keywords that can occur in a template and element schema artifact's _UI object;
-  public static final String UI_PAGES = "pages";
   public static final String UI_PROPERTY_LABELS = "propertyLabels";
   public static final String UI_PROPERTY_DESCRIPTIONS = "propertyDescriptions";
   public static final String UI_ORDER = "order";
 
-  public static final Set<String> TEMPLATE_SCHEMA_UI_KEYWORDS = Stream.of(UI_PAGES, UI_ORDER, UI_PROPERTY_LABELS,
+  public static final Set<String> TEMPLATE_SCHEMA_UI_KEYWORDS = Stream.of(UI_ORDER, UI_PROPERTY_LABELS,
     UI_PROPERTY_DESCRIPTIONS).collect(Collectors.toUnmodifiableSet());
 
   public static final Set<String> ELEMENT_SCHEMA_UI_KEYWORDS = Stream.of(UI_ORDER, UI_PROPERTY_LABELS,
