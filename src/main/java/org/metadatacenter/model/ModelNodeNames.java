@@ -3,6 +3,8 @@ package org.metadatacenter.model;
 import java.net.URI;
 import java.util.Map;
 import java.util.Set;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,8 +36,9 @@ public class ModelNodeNames
   public static final String JSON_LD_VOCAB = "@vocab";
 
   public static final Set<String> JSON_LD_KEYWORDS = Stream.of(JSON_LD_CONTEXT, JSON_LD_ID, JSON_LD_TYPE, JSON_LD_VALUE,
-    JSON_LD_GRAPH, JSON_LD_BASE, JSON_LD_CONTAINER, JSON_LD_INDEX, JSON_LD_LANGUAGE, JSON_LD_LIST, JSON_LD_NEST,
-    JSON_LD_NONE, JSON_LD_PREFIX, JSON_LD_REVERSE, JSON_LD_VERSION, JSON_LD_VOCAB).collect(Collectors.toUnmodifiableSet());
+      JSON_LD_GRAPH, JSON_LD_BASE, JSON_LD_CONTAINER, JSON_LD_INDEX, JSON_LD_LANGUAGE, JSON_LD_LIST, JSON_LD_NEST,
+      JSON_LD_NONE, JSON_LD_PREFIX, JSON_LD_REVERSE, JSON_LD_VERSION, JSON_LD_VOCAB)
+    .collect(Collectors.toUnmodifiableSet());
 
   /*
    * JSON Schema Keywords
@@ -69,9 +72,8 @@ public class ModelNodeNames
 
   public static final Set<String> JSON_SCHEMA_KEYWORDS = Stream.of(JSON_SCHEMA_SCHEMA, JSON_SCHEMA_SCHEMA_IRI,
     JSON_SCHEMA_REF, JSON_SCHEMA_TYPE, JSON_SCHEMA_ARRAY, JSON_SCHEMA_OBJECT, JSON_SCHEMA_TITLE,
-    JSON_SCHEMA_DESCRIPTION, JSON_SCHEMA_PROPERTIES,
-    JSON_SCHEMA_FORMAT, JSON_SCHEMA_FORMAT_URI, JSON_SCHEMA_FORMAT_DATE_TIME, JSON_SCHEMA_STRING, JSON_SCHEMA_NULL,
-    JSON_SCHEMA_ENUM, JSON_SCHEMA_ONE_OF,
+    JSON_SCHEMA_DESCRIPTION, JSON_SCHEMA_PROPERTIES, JSON_SCHEMA_FORMAT, JSON_SCHEMA_FORMAT_URI,
+    JSON_SCHEMA_FORMAT_DATE_TIME, JSON_SCHEMA_STRING, JSON_SCHEMA_NULL, JSON_SCHEMA_ENUM, JSON_SCHEMA_ONE_OF,
     JSON_SCHEMA_ITEMS, JSON_SCHEMA_UNIQUE_ITEMS, JSON_SCHEMA_MIN_ITEMS, JSON_SCHEMA_MAX_ITEMS, JSON_SCHEMA_MIN_LENGTH,
     JSON_SCHEMA_MAX_LENGTH, JSON_SCHEMA_MINIMUM, JSON_SCHEMA_REQUIRED, JSON_SCHEMA_PATTERN_PROPERTIES,
     JSON_SCHEMA_ADDITIONAL_PROPERTIES).collect(Collectors.toUnmodifiableSet());
@@ -92,7 +94,8 @@ public class ModelNodeNames
 
   public static final String SCHEMA_ORG_TITLE = "schema:title";
 
-  public static final Set<String> ARTIFACT_KEYWORDS = Stream.concat(JSON_LD_KEYWORDS.stream(), Stream.of(SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION, SCHEMA_ORG_IDENTIFIER, PAV_CREATED_ON, PAV_CREATED_BY,
+  public static final Set<String> ARTIFACT_KEYWORDS = Stream.concat(JSON_LD_KEYWORDS.stream(),
+    Stream.of(SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION, SCHEMA_ORG_IDENTIFIER, PAV_CREATED_ON, PAV_CREATED_BY,
       PAV_LAST_UPDATED_ON, PAV_DERIVED_FROM, OSLC_MODIFIED_BY)).collect(Collectors.toUnmodifiableSet());
 
   // CEDAR model keywords that can occur at the top level of all schema artifacts
@@ -102,8 +105,8 @@ public class ModelNodeNames
   public static final String BIBO_STATUS = "bibo:status";
   public static final String UI = "_ui";
 
-  public static final Set<String> SCHEMA_ARTIFACT_KEYWORDS = Stream.concat(Stream.concat(ARTIFACT_KEYWORDS.stream(),
-        JSON_SCHEMA_KEYWORDS.stream()),
+  public static final Set<String> SCHEMA_ARTIFACT_KEYWORDS = Stream.concat(
+      Stream.concat(ARTIFACT_KEYWORDS.stream(), JSON_SCHEMA_KEYWORDS.stream()),
       Stream.of(SCHEMA_ORG_SCHEMA_VERSION, SCHEMA_ORG_TITLE, PAV_VERSION, PAV_PREVIOUS_VERSION, BIBO_STATUS, UI))
     .collect(Collectors.toUnmodifiableSet());
 
@@ -122,7 +125,8 @@ public class ModelNodeNames
 
   public static final Set<String> INSTANCE_ARTIFACT_KEYWORDS = ARTIFACT_KEYWORDS;
 
-  public static final Set<String> TEMPLATE_INSTANCE_ARTIFACT_KEYWORDS = Stream.concat(INSTANCE_ARTIFACT_KEYWORDS.stream(), Stream.of(SCHEMA_IS_BASED_ON)).collect(Collectors.toUnmodifiableSet());
+  public static final Set<String> TEMPLATE_INSTANCE_ARTIFACT_KEYWORDS = Stream.concat(
+    INSTANCE_ARTIFACT_KEYWORDS.stream(), Stream.of(SCHEMA_IS_BASED_ON)).collect(Collectors.toUnmodifiableSet());
 
   public static final Set<String> ELEMENT_INSTANCE_ARTIFACT_KEYWORDS = INSTANCE_ARTIFACT_KEYWORDS;
 
@@ -184,10 +188,9 @@ public class ModelNodeNames
 
   public static final Set<String> INPUT_TYPES = Stream.of(FIELD_INPUT_TYPE_TEXTFIELD, FIELD_INPUT_TYPE_TEXTAREA,
     FIELD_INPUT_TYPE_RADIO, FIELD_INPUT_TYPE_CHECKBOX, FIELD_INPUT_TYPE_TEMPORAL, FIELD_INPUT_TYPE_EMAIL,
-    FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER,
-    FIELD_INPUT_TYPE_PAGE_BREAK, FIELD_INPUT_TYPE_SECTION_BREAK,
-    FIELD_INPUT_TYPE_RICH_TEXT, FIELD_INPUT_TYPE_IMAGE, FIELD_INPUT_TYPE_LINK, FIELD_INPUT_TYPE_YOUTUBE,
-    FIELD_INPUT_TYPE_ATTRIBUTE_VALUE).collect(Collectors.toUnmodifiableSet());
+    FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER, FIELD_INPUT_TYPE_PAGE_BREAK,
+    FIELD_INPUT_TYPE_SECTION_BREAK, FIELD_INPUT_TYPE_RICH_TEXT, FIELD_INPUT_TYPE_IMAGE, FIELD_INPUT_TYPE_LINK,
+    FIELD_INPUT_TYPE_YOUTUBE, FIELD_INPUT_TYPE_ATTRIBUTE_VALUE).collect(Collectors.toUnmodifiableSet());
 
   // CEDAR keywords that can occur in a field schema artifact's _valueConstraints object
   public static final String VALUE_CONSTRAINTS_ONTOLOGIES = "ontologies";
@@ -237,12 +240,12 @@ public class ModelNodeNames
     VALUE_CONSTRAINTS_SOURCE_URI, VALUE_CONSTRAINTS_TERM_URI, VALUE_CONSTRAINTS_DEFAULT_VALUE_TERM_URI,
     VALUE_CONSTRAINTS_LABEL, VALUE_CONSTRAINTS_PREFLABEL, VALUE_CONSTRAINTS_TYPE, VALUE_CONSTRAINTS_TYPE_ONTOLOGY_CLASS,
     VALUE_CONSTRAINTS_TYPE_VALUE_SET, VALUE_CONSTRAINTS_NAME, VALUE_CONSTRAINTS_ACRONYM, VALUE_CONSTRAINTS_EXCLUSIONS,
-    VALUE_CONSTRAINTS_REQUIRED_VALUE, VALUE_CONSTRAINTS_RECOMMENDED_VALUE,
-    VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT, VALUE_CONSTRAINTS_MIN_STRING_LENGTH,
-    VALUE_CONSTRAINTS_MAX_STRING_LENGTH, VALUE_CONSTRAINTS_MIN_NUMBER_VALUE, VALUE_CONSTRAINTS_MAX_NUMBER_VALUE,
-    VALUE_CONSTRAINTS_DECIMAL_PLACE, VALUE_CONSTRAINTS_NUMBER_TYPE, VALUE_CONSTRAINTS_UNIT_OF_MEASURE,
-    VALUE_CONSTRAINTS_TEMPORAL_TYPE, VALUE_CONSTRAINTS_ACTIONS, VALUE_CONSTRAINTS_ACTION, VALUE_CONSTRAINTS_ACTION_MOVE,
-    VALUE_CONSTRAINTS_ACTION_DELETE, VALUE_CONSTRAINTS_ACTION_TO).collect(Collectors.toUnmodifiableSet());
+    VALUE_CONSTRAINTS_REQUIRED_VALUE, VALUE_CONSTRAINTS_RECOMMENDED_VALUE, VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT,
+    VALUE_CONSTRAINTS_MIN_STRING_LENGTH, VALUE_CONSTRAINTS_MAX_STRING_LENGTH, VALUE_CONSTRAINTS_MIN_NUMBER_VALUE,
+    VALUE_CONSTRAINTS_MAX_NUMBER_VALUE, VALUE_CONSTRAINTS_DECIMAL_PLACE, VALUE_CONSTRAINTS_NUMBER_TYPE,
+    VALUE_CONSTRAINTS_UNIT_OF_MEASURE, VALUE_CONSTRAINTS_TEMPORAL_TYPE, VALUE_CONSTRAINTS_ACTIONS,
+    VALUE_CONSTRAINTS_ACTION, VALUE_CONSTRAINTS_ACTION_MOVE, VALUE_CONSTRAINTS_ACTION_DELETE,
+    VALUE_CONSTRAINTS_ACTION_TO).collect(Collectors.toUnmodifiableSet());
 
   public static final String SCHEMA = "schema";
   public static final String BIBO = "bibo";
@@ -260,24 +263,30 @@ public class ModelNodeNames
   public static final String SKOS_IRI = "http://www.w3.org/2004/02/skos/core#";
   public static final String RDFS_IRI = "http://www.w3.org/2000/01/rdf-schema#";
 
-  public static final Map<String, URI> PARENT_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
-    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)),
-    Map.entry(XSD, URI.create(XSD_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  public static final Map<String, URI> PARENT_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(
+    Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)),
+    Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(SCHEMA, URI.create(SCHEMA_IRI))).collect(
+    Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-  public static final Map<String, URI> FIELD_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(XSD, URI.create(XSD_IRI)),
-    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)),
-    Map.entry(SCHEMA, URI.create(SCHEMA_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  public static final Map<String, URI> FIELD_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(
+    Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)),
+    Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(SKOS, URI.create(SKOS_IRI))).collect(
+    Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-  public static final Map<String, URI> STATIC_FIELD_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
-    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(BIBO, URI.create(BIBO_IRI)),
-    Map.entry(OSLC, URI.create(OSLC_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  public static final Map<String, URI> STATIC_FIELD_SCHEMA_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(
+    Map.entry(SCHEMA, URI.create(SCHEMA_IRI)), Map.entry(PAV, URI.create(PAV_IRI)),
+    Map.entry(BIBO, URI.create(BIBO_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI))).collect(
+    Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-  public static final Map<String, URI> INSTANCE_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
-    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(RDFS, URI.create(RDFS_IRI)),
-    Map.entry(XSD, URI.create(XSD_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  public static final Map<String, URI> INSTANCE_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(
+    Map.entry(SCHEMA, URI.create(SCHEMA_IRI)), Map.entry(PAV, URI.create(PAV_IRI)),
+    Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(RDFS, URI.create(RDFS_IRI)), Map.entry(XSD, URI.create(XSD_IRI)),
+    Map.entry(SKOS, URI.create(SKOS_IRI))).collect(
+    Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
   public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(SCHEMA, OSLC, BIBO, XSD, PAV, SKOS, RDFS)
-    .collect(Collectors.toUnmodifiableSet());
+    .collect(Collectors.toCollection(LinkedHashSet::new));
 
   public static final Set<String> ARTIFACT_CONTEXT_FIELDS = Stream.of(SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION,
     SCHEMA_IS_BASED_ON, PAV_DERIVED_FROM, PAV_CREATED_BY, OSLC_MODIFIED_BY, PAV_CREATED_ON, PAV_LAST_UPDATED_ON,
@@ -291,13 +300,18 @@ public class ModelNodeNames
   public static final String FIELD_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/TemplateField";
   public static final String STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI = "https://schema.metadatacenter.org/core/StaticTemplateField";
 
-  public static final URI TEMPLATE_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/Template");
-  public static final URI ELEMENT_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/TemplateElement");
-  public static final URI FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/TemplateField");
-  public static final URI STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create("https://schema.metadatacenter.org/core/StaticTemplateField");
+  public static final URI TEMPLATE_SCHEMA_ARTIFACT_TYPE_URI = URI.create(
+    "https://schema.metadatacenter.org/core/Template");
+  public static final URI ELEMENT_SCHEMA_ARTIFACT_TYPE_URI = URI.create(
+    "https://schema.metadatacenter.org/core/TemplateElement");
+  public static final URI FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create(
+    "https://schema.metadatacenter.org/core/TemplateField");
+  public static final URI STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_URI = URI.create(
+    "https://schema.metadatacenter.org/core/StaticTemplateField");
 
   public static final Set<String> SCHEMA_ARTIFACT_TYPE_IRIS = Stream.of(TEMPLATE_SCHEMA_ARTIFACT_TYPE_IRI,
-    ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI, FIELD_SCHEMA_ARTIFACT_TYPE_IRI, STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI).collect(Collectors.toUnmodifiableSet());
+      ELEMENT_SCHEMA_ARTIFACT_TYPE_IRI, FIELD_SCHEMA_ARTIFACT_TYPE_IRI, STATIC_FIELD_SCHEMA_ARTIFACT_TYPE_IRI)
+    .collect(Collectors.toUnmodifiableSet());
 
   public static final String ANNOTATIONS = "_annotations";
   public static final String DATACITE_DOI_URI = "https://datacite.com/doi";
