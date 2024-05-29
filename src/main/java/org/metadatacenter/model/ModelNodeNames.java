@@ -161,6 +161,8 @@ public class ModelNodeNames
   public static final String UI_TEMPORAL_GRANULARITY = "temporalGranularity";
   public static final String UI_TIMEZONE_ENABLED = "timezoneEnabled";
   public static final String UI_CONTENT = "_content";
+  public static final String UI_WIDTH = "width";
+  public static final String UI_HEIGHT = "height";
   public static final String UI_HEADER = "header";
   public static final String UI_FOOTER = "footer";
 
