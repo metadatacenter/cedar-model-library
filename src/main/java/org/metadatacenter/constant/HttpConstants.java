@@ -13,6 +13,9 @@ public final class HttpConstants {
   public static final String HTTP_HEADER_CONTENT_TYPE = "Content-Type";
   public static final String HTTP_HEADER_AUTHORIZATION = "Authorization";
   public static final String HTTP_HEADER_ACCEPT = "Accept";
+  public static final String HTTP_HEADER_CONTENT_DISPOSITION = "Content-Disposition";
+  public static final String HTTP_HEADER_ACCESS_CONTROL_EXPOSE_HEADERS = "Access-Control-Expose-Headers";
+
 
   // HTTP header prefix
   public static final String HTTP_AUTH_HEADER_BEARER_PREFIX = "Bearer ";
@@ -27,6 +30,8 @@ public final class HttpConstants {
   // Content Types
   public static final String CONTENT_TYPE_APPLICATION_JSON = "application/json";
   public static final String CONTENT_TYPE_APPLICATION_MERGE_PATCH_JSON = "application/merge-patch+json";
+  public static final String CONTENT_TYPE_APPLICATION_YAML = "application/x-yaml";
+
 
   // StatusCodes
 
