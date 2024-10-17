@@ -282,9 +282,9 @@ public class ModelNodeNames
     Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
   public static final LinkedHashMap<String, URI> INSTANCE_ARTIFACT_CONTEXT_PREFIX_MAPPINGS = Stream.of(
-    Map.entry(SCHEMA, URI.create(SCHEMA_IRI)), Map.entry(PAV, URI.create(PAV_IRI)),
-    Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(RDFS, URI.create(RDFS_IRI)), Map.entry(XSD, URI.create(XSD_IRI)),
-    Map.entry(SKOS, URI.create(SKOS_IRI))).collect(
+    Map.entry(RDFS, URI.create(RDFS_IRI)), Map.entry(XSD, URI.create(XSD_IRI)),
+    Map.entry(PAV, URI.create(PAV_IRI)), Map.entry(SCHEMA, URI.create(SCHEMA_IRI)),
+    Map.entry(OSLC, URI.create(OSLC_IRI)), Map.entry(SKOS, URI.create(SKOS_IRI))).collect(
     Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
   public static final Set<String> ARTIFACT_CONTEXT_PREFIXES = Stream.of(SCHEMA, OSLC, BIBO, XSD, PAV, SKOS, RDFS)
