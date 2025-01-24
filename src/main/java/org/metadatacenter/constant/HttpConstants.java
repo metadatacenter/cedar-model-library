@@ -31,6 +31,7 @@ public final class HttpConstants {
   public static final String CONTENT_TYPE_APPLICATION_JSON = "application/json";
   public static final String CONTENT_TYPE_APPLICATION_MERGE_PATCH_JSON = "application/merge-patch+json";
   public static final String CONTENT_TYPE_APPLICATION_YAML = "application/x-yaml";
+  public static final String CONTENT_TYPE_APPLICATION_X_WWW_FORM_URLENCODED = "application/x-www-form-urlencoded";
 
 
   // StatusCodes
