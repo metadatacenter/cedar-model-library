@@ -186,7 +186,7 @@ public class ModelNodeNames
   public static final String FIELD_INPUT_TYPE_RICH_TEXT = "richtext";
   public static final String FIELD_INPUT_TYPE_IMAGE = "image";
   public static final String FIELD_INPUT_TYPE_LINK = "link";
-  public static final String FIELD_INPUT_TYPE_EXT_ROR = "ext_ror";
+  public static final String FIELD_INPUT_TYPE_EXT_ROR = "ext-ror";
   public static final String FIELD_INPUT_TYPE_EXT_ORCID = "ext-orcid";
   public static final String FIELD_INPUT_TYPE_YOUTUBE = "youtube";
   public static final String FIELD_INPUT_TYPE_ATTRIBUTE_VALUE = "attribute-value";
