@@ -188,6 +188,7 @@ public class ModelNodeNames
   public static final String FIELD_INPUT_TYPE_LINK = "link";
   public static final String FIELD_INPUT_TYPE_EXT_ROR = "ext-ror";
   public static final String FIELD_INPUT_TYPE_EXT_ORCID = "ext-orcid";
+  public static final String FIELD_INPUT_TYPE_EXT_PFAS = "ext-pfas";
   public static final String FIELD_INPUT_TYPE_YOUTUBE = "youtube";
   public static final String FIELD_INPUT_TYPE_ATTRIBUTE_VALUE = "attribute-value";
 
@@ -195,7 +196,8 @@ public class ModelNodeNames
     FIELD_INPUT_TYPE_RADIO, FIELD_INPUT_TYPE_CHECKBOX, FIELD_INPUT_TYPE_TEMPORAL, FIELD_INPUT_TYPE_EMAIL,
     FIELD_INPUT_TYPE_LIST, FIELD_INPUT_TYPE_NUMERIC, FIELD_INPUT_TYPE_PHONE_NUMBER, FIELD_INPUT_TYPE_PAGE_BREAK,
     FIELD_INPUT_TYPE_SECTION_BREAK, FIELD_INPUT_TYPE_RICH_TEXT, FIELD_INPUT_TYPE_IMAGE, FIELD_INPUT_TYPE_LINK,
-    FIELD_INPUT_TYPE_EXT_ROR, FIELD_INPUT_TYPE_EXT_ORCID, FIELD_INPUT_TYPE_YOUTUBE, FIELD_INPUT_TYPE_ATTRIBUTE_VALUE).collect(Collectors.toUnmodifiableSet());
+    FIELD_INPUT_TYPE_EXT_ROR, FIELD_INPUT_TYPE_EXT_ORCID, FIELD_INPUT_TYPE_EXT_PFAS, FIELD_INPUT_TYPE_YOUTUBE,
+      FIELD_INPUT_TYPE_ATTRIBUTE_VALUE).collect(Collectors.toUnmodifiableSet());
 
   // CEDAR keywords that can occur in a field schema artifact's _valueConstraints object
   public static final String VALUE_CONSTRAINTS_ONTOLOGIES = "ontologies";
