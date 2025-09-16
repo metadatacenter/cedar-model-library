@@ -101,4 +101,26 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
     }
     return false;
   }
+
+  public ResourceVersion nextMinorVersion() {
+    if (!this.isValid()) {
+      return ResourceVersion.ZERO_ZERO_ONE;
+    }
+
+    int nextMinor = this.minor + 1;
+    return ResourceVersion.forValueWithValidation(
+        this.major + "." + nextMinor + ".0"
+    );
+  }
+
+  public ResourceVersion nextPatchVersion() {
+    if (!this.isValid()) {
+      return ResourceVersion.ZERO_ZERO_ONE;
+    }
+
+    int nextPatch = this.patch + 1;
+    return ResourceVersion.forValueWithValidation(
+        this.major + "." + this.minor + "." + nextPatch
+    );
+  }
 }
