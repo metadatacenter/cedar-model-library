@@ -15,6 +15,8 @@ public class ModelNodeNames
   {
   }
 
+  public static final String MODEL_VERSION = "1.6.0";
+
   /*
    * JSON-LD Keywords
    */
