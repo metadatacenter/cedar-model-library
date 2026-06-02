@@ -1,6 +1,7 @@
 package org.metadatacenter.model;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.LinkedHashMap;
@@ -132,6 +133,15 @@ public class ModelNodeNames
 
   public static final Set<String> ELEMENT_INSTANCE_ARTIFACT_KEYWORDS = INSTANCE_ARTIFACT_KEYWORDS;
 
+  // Fixed entries of a template / element schema artifact's JSON Schema "required" array, in
+  // rendering order. The renderer appends the artifact's (non-static, non-attribute-value) child
+  // keys after these.
+  public static final List<String> TEMPLATE_SCHEMA_ARTIFACT_JSON_SCHEMA_REQUIRED = List.of(JSON_LD_CONTEXT, JSON_LD_ID,
+    SCHEMA_IS_BASED_ON, SCHEMA_ORG_NAME, SCHEMA_ORG_DESCRIPTION, PAV_CREATED_ON, PAV_CREATED_BY, PAV_LAST_UPDATED_ON,
+    OSLC_MODIFIED_BY);
+
+  public static final List<String> ELEMENT_SCHEMA_ARTIFACT_JSON_SCHEMA_REQUIRED = List.of(JSON_LD_CONTEXT, JSON_LD_ID);
+
   // Keywords that can occur in a field instance artifact
   public static final String RDFS_LABEL = "rdfs:label";
   public static final String SKOS_NOTATION = "skos:notation";
@@ -232,6 +242,7 @@ public class ModelNodeNames
   public static final String VALUE_CONSTRAINTS_EXCLUSIONS = "exclusions";
   public static final String VALUE_CONSTRAINTS_REQUIRED_VALUE = "requiredValue";
   public static final String VALUE_CONSTRAINTS_RECOMMENDED_VALUE = "recommendedValue";
+  public static final String VALUE_CONSTRAINTS_REGEX = "regex";
   public static final String VALUE_CONSTRAINTS_SELECTED_BY_DEFAULT = "selectedByDefault";
   public static final String VALUE_CONSTRAINTS_MIN_STRING_LENGTH = "minLength";
   public static final String VALUE_CONSTRAINTS_MAX_STRING_LENGTH = "maxLength";
