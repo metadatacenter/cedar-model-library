@@ -126,7 +126,11 @@ public class ModelNodeNames
   // CEDAR model keywords that can occur at the top level of template instance artifacts
   public static final String SCHEMA_IS_BASED_ON = "schema:isBasedOn";
 
-  public static final Set<String> INSTANCE_ARTIFACT_KEYWORDS = ARTIFACT_KEYWORDS;
+  // The annotations block (_annotations = ANNOTATIONS, declared below) is read separately, not as
+  // a child instance value, so it is a reserved instance-level keyword. Inlined as a literal here
+  // to avoid a static-initialization order dependency on the ANNOTATIONS constant.
+  public static final Set<String> INSTANCE_ARTIFACT_KEYWORDS = Stream.concat(
+    ARTIFACT_KEYWORDS.stream(), Stream.of("_annotations")).collect(Collectors.toUnmodifiableSet());
 
   public static final Set<String> TEMPLATE_INSTANCE_ARTIFACT_KEYWORDS = Stream.concat(
     INSTANCE_ARTIFACT_KEYWORDS.stream(), Stream.of(SCHEMA_IS_BASED_ON)).collect(Collectors.toUnmodifiableSet());
