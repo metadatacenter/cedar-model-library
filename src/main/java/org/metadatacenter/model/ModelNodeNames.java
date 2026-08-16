@@ -243,7 +243,7 @@ public class ModelNodeNames
   public static final String VALUE_CONSTRAINTS_NUM_TERMS = "numTerms";
   public static final String VALUE_CONSTRAINTS_MAX_DEPTH = "maxDepth";
   public static final String VALUE_CONSTRAINTS_VS_COLLECTION = "vsCollection";
-  // Source-explicit, version-pinned value constraints (additive; see VERSIONING-DESIGN §6). All
+  // Source-explicit, version-pinned value constraints (additive; see VERSIONING-ROADMAP "The Model" §6). All
   // optional: an entry without them means the BioPortal source, latest version, acronym-derived iri.
   public static final String VALUE_CONSTRAINTS_IRI = "iri";
   public static final String VALUE_CONSTRAINTS_SOURCE_SYSTEM = "sourceSystem";
