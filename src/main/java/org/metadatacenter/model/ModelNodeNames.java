@@ -243,6 +243,14 @@ public class ModelNodeNames
   public static final String VALUE_CONSTRAINTS_NUM_TERMS = "numTerms";
   public static final String VALUE_CONSTRAINTS_MAX_DEPTH = "maxDepth";
   public static final String VALUE_CONSTRAINTS_VS_COLLECTION = "vsCollection";
+  // Source-explicit, version-pinned value constraints (additive; see VERSIONING-ROADMAP "The Model" §6). All
+  // optional: an entry without them means the BioPortal source, latest version, acronym-derived iri.
+  public static final String VALUE_CONSTRAINTS_IRI = "iri";
+  public static final String VALUE_CONSTRAINTS_SOURCE_SYSTEM = "sourceSystem";
+  public static final String VALUE_CONSTRAINTS_VERSION = "version";
+  public static final String VALUE_CONSTRAINTS_VERSION_ID = "id";
+  public static final String VALUE_CONSTRAINTS_VERSION_EFFECTIVE_DATE = "effectiveDate";
+  public static final String VALUE_CONSTRAINTS_VERSION_DECLARED_VERSION = "declaredVersion";
   public static final String VALUE_CONSTRAINTS_EXCLUSIONS = "exclusions";
   public static final String VALUE_CONSTRAINTS_REQUIRED_VALUE = "requiredValue";
   public static final String VALUE_CONSTRAINTS_RECOMMENDED_VALUE = "recommendedValue";
@@ -265,6 +273,7 @@ public class ModelNodeNames
   public static final Set<String> VALUE_CONSTRAINTS_KEYWORDS = Stream.of(VALUE_CONSTRAINTS_ONTOLOGIES,
     VALUE_CONSTRAINTS_VALUE_SETS, VALUE_CONSTRAINTS_CLASSES, VALUE_CONSTRAINTS_BRANCHES, VALUE_CONSTRAINTS_LITERALS,
     VALUE_CONSTRAINTS_MULTIPLE_CHOICE, VALUE_CONSTRAINTS_DEFAULT_VALUE, VALUE_CONSTRAINTS_URI,
+    VALUE_CONSTRAINTS_IRI, VALUE_CONSTRAINTS_SOURCE_SYSTEM, VALUE_CONSTRAINTS_VERSION,
     VALUE_CONSTRAINTS_NUM_TERMS, VALUE_CONSTRAINTS_MAX_DEPTH, VALUE_CONSTRAINTS_VS_COLLECTION, VALUE_CONSTRAINTS_SOURCE,
     VALUE_CONSTRAINTS_SOURCE_URI, VALUE_CONSTRAINTS_TERM_URI, VALUE_CONSTRAINTS_DEFAULT_VALUE_TERM_URI,
     VALUE_CONSTRAINTS_LABEL, VALUE_CONSTRAINTS_PREFLABEL, VALUE_CONSTRAINTS_TYPE, VALUE_CONSTRAINTS_TYPE_ONTOLOGY_CLASS,
