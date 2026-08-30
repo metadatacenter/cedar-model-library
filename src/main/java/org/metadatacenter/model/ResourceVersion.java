@@ -3,6 +3,9 @@ package org.metadatacenter.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import java.util.Comparator;
+import java.util.Objects;
+
 public class ResourceVersion implements Comparable<ResourceVersion> {
 
   private String value;
@@ -72,20 +75,21 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
     if (o == null) {
       return 1;
     }
-    if (!o.isValid()) {
-      return 1;
-    } else if (!this.isValid()) {
-      return -1;
+    if (this.valid != o.valid) {
+      return this.valid ? 1 : -1;
     }
-    if (this.major != o.major) {
-      return this.major - o.major;
-    } else if (this.minor != o.minor) {
-      return this.minor - o.minor;
-    } else if (this.patch != o.patch) {
-      return this.patch - o.patch;
-    } else {
-      return 0;
+    if (!this.valid) {
+      return Comparator.nullsFirst(String::compareTo).compare(this.value, o.value);
     }
+    int majorComparison = Integer.compare(this.major, o.major);
+    if (majorComparison != 0) {
+      return majorComparison;
+    }
+    int minorComparison = Integer.compare(this.minor, o.minor);
+    if (minorComparison != 0) {
+      return minorComparison;
+    }
+    return Integer.compare(this.patch, o.patch);
   }
 
   public boolean isBefore(ResourceVersion o) {
@@ -94,12 +98,20 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof ResourceVersion && this.value != null) {
-      ResourceVersion other = (ResourceVersion) obj;
-      return this.valid == other.valid && this.value.equals(other.value) && this.major == other.major &&
-          this.minor == other.minor && this.patch == other.patch;
+    if (this == obj) {
+      return true;
     }
-    return false;
+    if (!(obj instanceof ResourceVersion other)) {
+      return false;
+    }
+    return this.valid == other.valid && Objects.equals(this.value, other.value) &&
+        Objects.equals(this.major, other.major) && Objects.equals(this.minor, other.minor) &&
+        Objects.equals(this.patch, other.patch);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value, valid, major, minor, patch);
   }
 
   public ResourceVersion nextMinorVersion() {
