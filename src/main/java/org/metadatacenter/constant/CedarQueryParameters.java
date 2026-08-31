@@ -12,6 +12,9 @@ public final class CedarQueryParameters {
   public static final String QP_SORT = "sort";
   public static final String QP_LIMIT = "limit";
   public static final String QP_OFFSET = "offset";
+  // Names a position in a result set rather than a distance into it: the deep search hands one back
+  // with every page, and the caller passes it to ask for the next.
+  public static final String QP_CONTINUATION = "continuation";
   public static final String QP_VERSION = "version";
   public static final String QP_PUBLICATION_STATUS = "publication_status";
   public static final String QP_SUMMARY = "summary";
