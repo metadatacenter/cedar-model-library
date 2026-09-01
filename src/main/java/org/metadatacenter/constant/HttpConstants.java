@@ -21,6 +21,15 @@ public final class HttpConstants {
   public static final String HTTP_AUTH_HEADER_BEARER_PREFIX = "Bearer ";
   public static final String HTTP_AUTH_HEADER_APIKEY_PREFIX = "apiKey ";
 
+  /**
+   * The challenge every 401 carries, naming both schemes {@code Authorization} accepts above.
+   *
+   * <p>RFC 9110 requires a 401 to send {@code WWW-Authenticate}, and a client that receives none has no
+   * way to discover which scheme to use. Each challenge carries a realm so the comma separates two
+   * challenges rather than reading as an auth-param of the first.
+   */
+  public static final String HTTP_AUTH_CHALLENGE = "Bearer realm=\"CEDAR\", apiKey realm=\"CEDAR\"";
+
   // HTTP Link header types
   public static final String HEADER_LINK_TYPE_FIRST = "first";
   public static final String HEADER_LINK_TYPE_LAST = "last";
