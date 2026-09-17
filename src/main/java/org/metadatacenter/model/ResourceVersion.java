@@ -35,7 +35,8 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
   }
 
   public void validate() {
-    if (value != null) {
+    valid = false;
+    if (value != null && value.matches("(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)")) {
       String[] split = value.split("\\.");
       if (split.length == 3) {
         major = getInteger(split[0]);

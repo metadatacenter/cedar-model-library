@@ -11,6 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class ResourceVersionTest {
 
   @Test
+  void rejectsMalformedNumericVersions() {
+    for (String value : java.util.List.of("1.-1.0", "-1.2.3", "+1.0.0", "1.0.0.", "01.0.0", "2147483648.0.1", "0.0.0")) {
+      org.junit.jupiter.api.Assertions.assertFalse(ResourceVersion.forValueWithValidation(value).isValid(), value);
+    }
+  }
+
+
+  @Test
   void comparesNumericComponentsByValueBeyondTheIntegerCache() {
     ResourceVersion earlier = ResourceVersion.forValueWithValidation("200.0.1");
     ResourceVersion later = ResourceVersion.forValueWithValidation("200.0.2");
