@@ -16,10 +16,12 @@ public enum CedarResponseStatus {
   UNSUPPORTED_MEDIA_TYPE(415, "Unsupported Media Type"),
   UNPROCESSABLE_ENTITY(422, "Unprocessable Entity"),
   PRECONDITION_REQUIRED(428, "Precondition Required"),
+  TOO_MANY_REQUESTS(429, "Too Many Requests"),
   INTERNAL_SERVER_ERROR(500, "Internal Server Error"),
   NOT_IMPLEMENTED(501, "Not Implemented"),
   BAD_GATEWAY(502, "Bad Gateway"),
   SERVICE_UNAVAILABLE(503, "Service Unavailable"),
+  GATEWAY_TIMEOUT(504, "Gateway Timeout"),
   HTTP_VERSION_NOT_SUPPORTED(505, "HTTP Version Not Supported");
 
   private final int code;
