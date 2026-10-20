@@ -17,6 +17,8 @@
   <description>Library that defines model-related constants</description>
 
   <properties>
+    <!-- Line coverage measured on 2026-10-19: 23.1%. The build fails below this floor. -->
+    <cedar.coverage.line.minimum>0.21</cedar.coverage.line.minimum>
   </properties>
 
   <scm>
