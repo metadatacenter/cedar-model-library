@@ -16,12 +16,9 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
 
   public static ResourceVersion ZERO_ZERO_ONE = ResourceVersion.forValue("0.0.1");
 
-  private ResourceVersion(String value, boolean validate) {
+  private ResourceVersion(String value) {
     this.value = value;
-    this.valid = false;
-    if (validate) {
-      validate();
-    }
+    validate();
   }
 
   @JsonValue
@@ -56,11 +53,7 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
   }
 
   public static ResourceVersion forValueWithValidation(String value) {
-    return new ResourceVersion(value, true);
-  }
-
-  public static ResourceVersion forValueWithoutValidation(String value) {
-    return new ResourceVersion(value, false);
+    return new ResourceVersion(value);
   }
 
   private static Integer getInteger(String s) {
