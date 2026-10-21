@@ -1,5 +1,6 @@
 package org.metadatacenter.model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -104,6 +105,37 @@ class ResourceVersionTest {
     ResourceVersion second = ResourceVersion.forValueWithValidation("200.130.141");
 
     assertNotEquals(first, second);
+  }
+
+  // A new copy is stamped with this version, and it must be the same version a client's "0.0.1" is.
+  @Test
+  void theFirstVersionIsAValidVersion() {
+    assertTrue(ResourceVersion.ZERO_ZERO_ONE.isValid());
+    assertEquals(ResourceVersion.forValueWithValidation("0.0.1"), ResourceVersion.ZERO_ZERO_ONE);
+    assertEquals("0.0.2", ResourceVersion.ZERO_ZERO_ONE.nextPatchVersion().getValue());
+  }
+
+  // Every schema artifact read from the graph gets its version from forValue, the JSON creator.
+  @Test
+  void aVersionReadFromJsonOrdersByItsNumbers() throws Exception {
+    ObjectMapper mapper = new ObjectMapper();
+    ResourceVersion ten = mapper.readValue("\"10.0.0\"", ResourceVersion.class);
+    ResourceVersion nine = mapper.readValue("\"9.0.0\"", ResourceVersion.class);
+
+    assertTrue(ten.isValid());
+    assertTrue(nine.isBefore(ten));
+    assertFalse(ten.isBefore(nine));
+    assertEquals(ResourceVersion.forValueWithValidation("10.0.0"), ten);
+    assertEquals("10.0.0", mapper.writeValueAsString(ten).replace("\"", ""));
+    assertTrue(ResourceVersion.forValue("9.0.0").isBefore(ResourceVersion.forValue("10.0.0")));
+  }
+
+  @Test
+  void aMalformedVersionReadFromJsonKeepsItsText() throws Exception {
+    ResourceVersion malformed = new ObjectMapper().readValue("\"v1\"", ResourceVersion.class);
+
+    assertFalse(malformed.isValid());
+    assertEquals("v1", malformed.getValue());
   }
 
   @Test

@@ -31,7 +31,7 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
 
   @JsonCreator
   public static ResourceVersion forValue(String value) {
-    return ResourceVersion.forValueWithoutValidation(value);
+    return ResourceVersion.forValueWithValidation(value);
   }
 
   public void validate() {
@@ -113,17 +113,6 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
   @Override
   public int hashCode() {
     return Objects.hash(value, valid, major, minor, patch);
-  }
-
-  public ResourceVersion nextMinorVersion() {
-    if (!this.isValid()) {
-      return ResourceVersion.ZERO_ZERO_ONE;
-    }
-
-    int nextMinor = this.minor + 1;
-    return ResourceVersion.forValueWithValidation(
-        this.major + "." + nextMinor + ".0"
-    );
   }
 
   public ResourceVersion nextPatchVersion() {
