@@ -16,12 +16,9 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
 
   public static ResourceVersion ZERO_ZERO_ONE = ResourceVersion.forValue("0.0.1");
 
-  private ResourceVersion(String value, boolean validate) {
+  private ResourceVersion(String value) {
     this.value = value;
-    this.valid = false;
-    if (validate) {
-      validate();
-    }
+    validate();
   }
 
   @JsonValue
@@ -31,7 +28,7 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
 
   @JsonCreator
   public static ResourceVersion forValue(String value) {
-    return ResourceVersion.forValueWithoutValidation(value);
+    return ResourceVersion.forValueWithValidation(value);
   }
 
   public void validate() {
@@ -56,11 +53,7 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
   }
 
   public static ResourceVersion forValueWithValidation(String value) {
-    return new ResourceVersion(value, true);
-  }
-
-  public static ResourceVersion forValueWithoutValidation(String value) {
-    return new ResourceVersion(value, false);
+    return new ResourceVersion(value);
   }
 
   private static Integer getInteger(String s) {
@@ -113,17 +106,6 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
   @Override
   public int hashCode() {
     return Objects.hash(value, valid, major, minor, patch);
-  }
-
-  public ResourceVersion nextMinorVersion() {
-    if (!this.isValid()) {
-      return ResourceVersion.ZERO_ZERO_ONE;
-    }
-
-    int nextMinor = this.minor + 1;
-    return ResourceVersion.forValueWithValidation(
-        this.major + "." + nextMinor + ".0"
-    );
   }
 
   public ResourceVersion nextPatchVersion() {
