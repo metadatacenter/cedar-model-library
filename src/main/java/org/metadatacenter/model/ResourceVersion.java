@@ -113,6 +113,12 @@ public class ResourceVersion implements Comparable<ResourceVersion> {
       return ResourceVersion.ZERO_ZERO_ONE;
     }
 
+    // Each part of a version is an int, so the largest patch number has no successor. Adding one would
+    // wrap to a negative number and hand back a version no reader accepts.
+    if (this.patch == Integer.MAX_VALUE) {
+      throw new IllegalStateException("Version " + this.value + " has no next patch version: its patch number"
+          + " is the largest a version may hold");
+    }
     int nextPatch = this.patch + 1;
     return ResourceVersion.forValueWithValidation(
         this.major + "." + this.minor + "." + nextPatch
