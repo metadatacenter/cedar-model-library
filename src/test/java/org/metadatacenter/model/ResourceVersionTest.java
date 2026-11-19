@@ -10,6 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ResourceVersionTest {
@@ -76,6 +77,18 @@ class ResourceVersionTest {
     assertEquals("1.2.10", next.getValue());
     assertTrue(next.isValid());
     assertTrue(current.isBefore(next));
+  }
+
+  @Test
+  void theLargestPatchNumberHasNoNextPatchVersion() {
+    ResourceVersion largest = ResourceVersion.forValueWithValidation("1.2.2147483647");
+    assertTrue(largest.isValid());
+
+    IllegalStateException thrown = assertThrows(IllegalStateException.class, largest::nextPatchVersion);
+
+    assertTrue(thrown.getMessage().contains("1.2.2147483647"), thrown.getMessage());
+    assertEquals("1.2.2147483647", ResourceVersion.forValueWithValidation("1.2.2147483646").nextPatchVersion()
+        .getValue());
   }
 
 
