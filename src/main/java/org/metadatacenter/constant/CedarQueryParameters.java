@@ -60,8 +60,8 @@ public final class CedarQueryParameters {
   public static final String QP_FROM = "from";
   public static final String QP_TO = "to";
   public static final String QP_TABLE = "table";
-  public static final String QP_MAX_SPANS = "maxSpans";
-  public static final String QP_MIN_DURATION_MS = "minDurationMs";
+  public static final String QP_MAX_SPANS = "max_spans";
+  public static final String QP_MIN_DURATION_MS = "min_duration_ms";
 
   // The withdrawn page-number paging. No route declares these: a request carrying one is refused.
   // Both spellings of the page size were accepted, so both are refused.
