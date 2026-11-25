@@ -54,11 +54,19 @@ public final class CedarQueryParameters {
   public static final String QP_TERM_IRI = "termIri";
   public static final String QP_PROPERTY_IRI = "propertyIri";
   public static final String QP_SUBTREE_ROOT_ID = "subtree_root_id";
+  public static final String QP_URI = "uri";
   public static final String QP_MAX_DEPTH = "max_depth";
   public static final String QP_INCLUDE_DETAILS = "include_details";
   public static final String QP_REQUIRE_DEFINITIONS = "require_definitions";
+  // A filter on a field's time is <field>_after, inclusive, and <field>_before, exclusive, each an
+  // ISO-8601 instant. A window over the data itself is from, inclusive, and to, exclusive.
+  public static final String QP_MODIFIED_AFTER = "modified_after";
+  public static final String QP_MODIFIED_BEFORE = "modified_before";
   public static final String QP_FROM = "from";
   public static final String QP_TO = "to";
+  // Bounds that are versions rather than times.
+  public static final String QP_FROM_VERSION = "from_version";
+  public static final String QP_TO_VERSION = "to_version";
   public static final String QP_TABLE = "table";
   public static final String QP_MAX_SPANS = "max_spans";
   public static final String QP_MIN_DURATION_MS = "min_duration_ms";
