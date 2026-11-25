@@ -6,7 +6,6 @@ public final class CedarQueryParameters {
   }
 
   public static final String QP_FOLDER_ID = "folder_id";
-  public static final String QP_DEBUG = "debug";
   public static final String QP_RESOURCE_TYPES = "resource_types";
   public static final String QP_RESOURCE_TYPE = "resource_type";
   public static final String QP_SORT = "sort";
@@ -34,5 +33,40 @@ public final class CedarQueryParameters {
   public static final String QP_VERBATIM = "verbatim";
 
   public static final String QP_SOURCE_ARTIFACT_ID = "source_artifact_id";
+
+  // The draft a new version is taken from, when the caller names it rather than the server choosing.
+  public static final String QP_DRAFT_ID = "draft_id";
+  public static final String QP_COMPACT = "compact";
+  public static final String QP_INPUT = "input";
+  public static final String QP_TYPE = "type";
+  public static final String QP_KIND = "kind";
+  public static final String QP_STATE = "state";
+  public static final String QP_LANG = "lang";
+  public static final String QP_SCOPE = "scope";
+  public static final String QP_SUGGEST = "suggest";
+  public static final String QP_EXACT = "exact";
+  public static final String QP_EXACT_MATCH = "exact_match";
+  public static final String QP_SOURCE = "source";
+  public static final String QP_SOURCES = "sources";
+  public static final String QP_SOURCE_ACRONYM = "sourceAcronym";
+  public static final String QP_COLLECTION = "collection";
+  public static final String QP_VERSION_ID = "versionId";
+  public static final String QP_TERM_IRI = "termIri";
+  public static final String QP_PROPERTY_IRI = "propertyIri";
+  public static final String QP_SUBTREE_ROOT_ID = "subtree_root_id";
+  public static final String QP_MAX_DEPTH = "max_depth";
+  public static final String QP_INCLUDE_DETAILS = "include_details";
+  public static final String QP_REQUIRE_DEFINITIONS = "require_definitions";
+  public static final String QP_FROM = "from";
+  public static final String QP_TO = "to";
+  public static final String QP_TABLE = "table";
+  public static final String QP_MAX_SPANS = "maxSpans";
+  public static final String QP_MIN_DURATION_MS = "minDurationMs";
+
+  // The withdrawn page-number paging. No route declares these: a request carrying one is refused.
+  // Both spellings of the page size were accepted, so both are refused.
+  public static final String QP_PAGE = "page";
+  public static final String QP_PAGE_SIZE = "page_size";
+  public static final String QP_PAGE_SIZE_CAMEL = "pageSize";
 
 }
