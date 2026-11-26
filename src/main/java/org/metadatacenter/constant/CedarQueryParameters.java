@@ -48,11 +48,11 @@ public final class CedarQueryParameters {
   public static final String QP_EXACT_MATCH = "exact_match";
   public static final String QP_SOURCE = "source";
   public static final String QP_SOURCES = "sources";
-  public static final String QP_SOURCE_ACRONYM = "sourceAcronym";
+  public static final String QP_SOURCE_ACRONYM = "source_acronym";
   public static final String QP_COLLECTION = "collection";
-  public static final String QP_VERSION_ID = "versionId";
-  public static final String QP_TERM_IRI = "termIri";
-  public static final String QP_PROPERTY_IRI = "propertyIri";
+  public static final String QP_VERSION_ID = "version_id";
+  public static final String QP_TERM_IRI = "term_iri";
+  public static final String QP_PROPERTY_IRI = "property_iri";
   public static final String QP_SUBTREE_ROOT_ID = "subtree_root_id";
   public static final String QP_URI = "uri";
   public static final String QP_MAX_DEPTH = "max_depth";
